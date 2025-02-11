@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<link rel="icon" type="image/x-icon" href="https://media.discordapp.net/attachments/1013440852602912819/1335548077628461126/Hand_n_Brain_vs_Viewers_1.png?ex=67a09192&is=679f4012&hm=56cea09cf4c50229543ec594e58ed807d7760da11b6b220c6ddcb50e2ea0e126&=&format=webp&quality=lossless&width=662&height=662">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="chess coaching, online chess lessons, chess tutor, chess training, improve chess skills, chess strategy, grandmaster training">
+<meta name="description" content="Join our chess coaching program to improve your chess skills with expert guidance. Learn openings, middle-game strategies, and endgame techniques.">
+
+    <title>EDUCHESS Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(120deg, #f3f4f7, #e3e8ee);
+            color: #333;
+            scroll-behavior: smooth;
+        }
+header {
+    background: #1c2833;
+    color: #fff;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+        header h1 {
+            position: absolute;
+            left: 2rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+header nav {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 2rem;
+}
+
+header nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+      header nav a:hover {
+    color: #f39c12;
+}
+        .hero {
+            background: url('https://media.discordapp.net/attachments/1013440852602912819/1336454194617384980/EDU_CHESS_5.png?ex=67a3dd76&is=67a28bf6&hm=5bb08c19f9ad8f88fea09c9508e652e3db8a243d39f1e3a22c6bf64e6787d770&=&format=webp&quality=lossless&width=687&height=275') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+            padding: 0 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+
+        .hero div {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero button {
+            background: #f39c12;
+            color: #fff;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1.2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .hero button:hover {
+            background: #d35400;
+            transform: translateY(-2px);
+        }
+
+        .section {
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .section h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            color: #1c2833;
+        }
+
+        .section p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            color: #555;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            padding: 0 2rem;
+        }
+
+        .feature-card {
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .feature-card p {
+            color: #777;
+        }
+
+        .feature-card.beginner {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+        }
+
+        .feature-card.intermediate {
+            background: #d1ecf1;
+            border: 1px solid #bee5eb;
+        }
+
+        .feature-card.advanced {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            padding: 0 2rem;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        .reviews-section {
+            background: #fff;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .reviews-section h2 {
+            color: #1c2833;
+        }
+
+        .review-slider {
+            position: relative;
+            max-width: 800px;
+            margin: 2rem auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .review-slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .review-slide {
+            min-width: 100%;
+            box-sizing: border-box;
+            padding: 2rem;
+            background: #f9f9f9;
+        }
+
+        .review-slide p {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .review-slide .stars {
+            color: #f39c12;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .review-slide h4 {
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .slider-buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .slider-button {
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            font-size: 1rem;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .slider-button:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        footer {
+            background: #1c2833;
+            color: #fff;
+            text-align: center;
+            padding: 1.5rem 0;
+            font-size: 1rem;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        footer a {
+            color: #f39c12;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .whatsapp-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .whatsapp-button:hover {
+            transform: scale(1.1);
+        }
+
+        .whatsapp-button img {
+            width: 30px;
+            height: 30px;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            header h1 {
+                position: static;
+                margin-bottom: 1rem;
+            }
+
+            header nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+ header img {
+    height: 50px;
+    margin-right: auto;
+}
+.gallery-slider {
+    position: relative;
+    max-width: 600px;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.gallery-slides img {
+    width: 100%;
+    flex-shrink: 0;
+}
+
+.gallery-prev, .gallery-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.gallery-prev { left: 10px; }
+.gallery-next { right: 10px; }
+
+.gallery-prev:hover, .gallery-next:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+ .form-container {
+        max-width: 600px;
+        background: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        margin: auto;
+    }
+
+    .form-container h2 {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .form-container p {
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-group label {
+        display: block;
+        font-size: 14px;
+        font-weight: 500;
+        margin-bottom: 5px;
+    }
+
+    .form-group input, 
+    .form-group select, 
+    .form-group textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 14px;
+    }
+
+    .form-group textarea {
+        resize: none;
+        height: 100px;
+    }
+
+    .submit-btn {
+        width: 100%;
+        background: #030029;
+        color: white;
+        padding: 12px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .submit-btn:hover {
+        background: #b12472;
+    }
+  .faq-container {
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
+    font-family: 'Times New Roman', serif;
+  }
+  .faq-item {
+    border-bottom: 1px solid #ccc;
+  }
+  .faq-question {
+    width: 100%;
+    text-align: left;
+    background: #f8f8f8;
+    border: none;
+    padding: 12px;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out;
+  }
+  .faq-question:hover {
+    background: #e0e0e0;
+  }
+  .faq-answer {
+    display: none;
+    padding: 12px;
+    font-size: 16px;
+    background: #fafafa;
+    border-left: 4px solid #444;
+  }
+    </style>
+</head>
+<body>
+    <header>
+         <img src="https://media.discordapp.net/attachments/1013440852602912819/1334586518173651016/EDU_CHESS_1.png?ex=679f0c4d&is=679dbacd&hm=260edcb1ee72c205daad530fe738d57610db810d7b3cedc38b1c31c0b237ee4f&=&format=webp&quality=lossless&width=1440&height=576" alt="Your Chess Academy Logo">
+        <nav>
+            <a href="#about">About</a>
+            <a href="#programs">Programs</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#Register for Classes">Register for Classes</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <div>
+            <h1>Master the Game of Chess</h1>
+            <p>Elevate your chess skills with personalized coaching and expert strategies.</p>
+            <button onclick="document.getElementById('Register for Classes').scrollIntoView({ behavior: 'smooth' });">
+    Get Started
+</button>
+        </div>
+    </div>
+
+    <section id="about" class="section">
+        <h2>About Us</h2>
+        <p>Your Chess Academy is dedicated to providing exceptional chess education for players of all skill levels. Whether you’re a beginner or a seasoned player, our tailored programs and expert coaching will help you achieve your chess goals.</p>
+    </section>
+
+    <section id="programs" class="section">
+        <h2>Our Programs</h2>
+        <div class="features">
+            <div class="feature-card beginner">
+                <h3>Beginner Courses</h3>
+                <p>Start your journey with the basics of chess, including rules, moves, and strategies.</p>
+            </div>
+            <div class="feature-card intermediate">
+                <h3>Intermediate Training</h3>
+                <p>Enhance your understanding of openings, middlegame tactics, and endgame strategies.</p>
+            </div>
+            <div class="feature-card advanced">
+                <h3>Advanced Coaching</h3>
+                <p>Refine your skills with in-depth analysis, competitive preparation, and grandmaster-level insights.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="section">
+        <h2>Gallery</h2>
+       <div class="gallery-slider">
+    <div class="gallery-slides">
+        <img src="https://images-ext-1.discordapp.net/external/eWRnTdKO7_1HH_aHaF6emyAW6J2qhafaKDYIQ7rgvOE/https/images.chesscomfiles.com/uploads/v1/blog/959634.acb843d4.668x375o.de72a8b0cd65.jpg?format=webp&width=835&height=468" alt="Chess class">
+        <img src="https://via.placeholder.com/600x400" alt="Chess match">
+        <img src="https://via.placeholder.com/600x400" alt="Student learning chess">
+        <img src="https://via.placeholder.com/600x400" alt="Chess tournament">
+    </div>
+    <button class="gallery-prev" onclick="prevGallerySlide()">&#10094;</button>
+    <button class="gallery-next" onclick="nextGallerySlide()">&#10095;</button>
+</div>
+
+    </section>
+
+    <section id="reviews" class="reviews-section">
+        <h2>What Our Students Have To Say</h2>
+        <div class="review-slider">
+            <div class="review-slides">
+                <div class="review-slide">
+                    <p class="stars">★★★★★</p>
+                    <p>"Choosing the chess academy for our child was a game-changing decision. The academy's dedicated coaches and engaging curriculum have not only improved our child's chess skills but also boosted their confidence."</p>
+                    <h4>- John Doe</h4>
+                </div>
+                <div class="review-slide">
+                    <p class="stars">★★★★★</p>
+                    <p>"This academy has the best coaches! They provide personalized training and encourage players to think critically. Highly recommended for all skill levels."</p>
+                    <h4>- Jane Smith</h4>
+                </div>
+                <div class="review-slide">
+                    <p class="stars">★★★★★</p>
+                    <p>"The tournaments and events organized by the academy are outstanding. They bring a sense of community and competitiveness to all participants."</p>
+                    <h4>- Michael Lee</h4>
+                </div>
+            </div>
+            <div class="slider-buttons">
+                <button class="slider-button" onclick="prevSlide()">&#10094;</button>
+                <button class="slider-button" onclick="nextSlide()">&#10095;</button>
+            </div>
+        </div>
+    </section>
+ <section id="Register for Classes" class="section">
+
+<div class="form-container">
+    <h2>Register for Chess Coaching</h2>
+    <form id="registrationForm">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+        </div>
+
+        <div class="form-group">
+            <label for="phone">Phone Number:</label>
+            <input type="text" id="phone" placeholder="+1234567890" required>
+        </div>
+
+        <div class="form-group">
+            <label for="country">Country:</label>
+            <select id="country" required>
+                <option value="">Select Country</option>
+                <option value="United States">United States</option>
+                <option value="India">India</option>
+                <option value="United Kingdom">United Kingdom</option>
+                <option value="Canada">Canada</option>
+                <option value="Australia">Australia</option>
+                <option value="Germany">Germany</option>
+                <option value="France">France</option>
+                <option value="Brazil">Brazil</option>
+                <option value="South Africa">South Africa</option>
+                <option value="Japan">Japan</option>
+                <option value="China">China</option>
+                <option value="Russia">Russia</option>
+                <option value="Mexico">Mexico</option>
+                <option value="Spain">Spain</option>
+                <option value="Italy">Italy</option>
+                <option value="Netherlands">Netherlands</option>
+                <option value="Sweden">Sweden</option>
+                <option value="Norway">Norway</option>
+                <option value="Denmark">Denmark</option>
+                <option value="Finland">Finland</option>
+                <option value="Switzerland">Switzerland</option>
+                <option value="Argentina">Argentina</option>
+                <option value="New Zealand">New Zealand</option>
+                <option value="Pakistan">Pakistan</option>
+                <option value="Bangladesh">Bangladesh</option>
+                <option value="Singapore">Singapore</option>
+                <option value="Malaysia">Malaysia</option>
+                <option value="UAE">United Arab Emirates</option>
+                <option value="Saudi Arabia">Saudi Arabia</option>
+                <option value="Indonesia">Indonesia</option>
+                <option value="South Korea">South Korea</option>
+                <option value="Thailand">Thailand</option>
+                <option value="Vietnam">Vietnam</option>
+                <option value="Egypt">Egypt</option>
+                <option value="Nigeria">Nigeria</option>
+                <option value="Turkey">Turkey</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+ <div class="form-group">
+        <label for="state">State:</label>
+        <select id="state" required>
+            <option value="">Select State</option>
+        </select>
+ <script>
+document.addEventListener("DOMContentLoaded", function() {
+  // Define the country-state mapping
+  const statesByCountry = {
+    "United States": ["Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"],
+    "India": ["Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jharkhand", "Karnataka", "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", "Telangana", "Tripura", "Uttar Pradesh", "Uttarakhand", "West Bengal"],
+    "United Kingdom": ["England", "Scotland", "Wales", "Northern Ireland"],
+    "Canada": ["Alberta", "British Columbia", "Manitoba", "New Brunswick", "Newfoundland and Labrador", "Nova Scotia", "Ontario", "Prince Edward Island", "Quebec", "Saskatchewan"],
+    "Australia": ["New South Wales", "Victoria", "Queensland", "Western Australia", "South Australia", "Tasmania", "Northern Territory", "Australian Capital Territory"],
+    "Germany": ["Baden-Württemberg", "Bavaria", "Berlin", "Brandenburg", "Bremen", "Hamburg", "Hesse", "Lower Saxony", "Mecklenburg-Vorpommern", "North Rhine-Westphalia", "Rhineland-Palatinate", "Saarland", "Saxony", "Saxony-Anhalt", "Schleswig-Holstein", "Thuringia"],
+    "France": ["Île-de-France", "Provence-Alpes-Côte d'Azur", "Auvergne-Rhône-Alpes", "Bourgogne-Franche-Comté", "Brittany", "Centre-Val de Loire", "Corsica", "Grand Est", "Hauts-de-France", "Normandy", "Nouvelle-Aquitaine", "Occitanie", "Pays de la Loire"],
+    "Brazil": ["Acre", "Alagoas", "Amapá", "Amazonas", "Bahia", "Ceará", "Distrito Federal", "Espírito Santo", "Goiás", "Maranhão", "Mato Grosso", "Mato Grosso do Sul", "Minas Gerais", "Pará", "Paraíba", "Paraná", "Pernambuco", "Piauí", "Rio de Janeiro", "Rio Grande do Norte", "Rio Grande do Sul", "Rondônia", "Roraima", "Santa Catarina", "São Paulo", "Sergipe", "Tocantins"],
+    "South Africa": ["Eastern Cape", "Free State", "Gauteng", "KwaZulu-Natal", "Limpopo", "Mpumalanga", "North West", "Northern Cape", "Western Cape"],
+    "Japan": ["Hokkaido", "Tohoku", "Kanto", "Chubu", "Kinki", "Chugoku", "Shikoku", "Kyushu"],
+    "China": ["Anhui", "Beijing", "Chongqing", "Fujian", "Gansu", "Guangdong", "Guangxi", "Guizhou", "Hainan", "Hebei", "Heilongjiang", "Henan", "Hong Kong", "Hubei", "Hunan", "Inner Mongolia", "Jiangsu", "Jiangxi", "Jilin", "Liaoning", "Macau", "Ningxia", "Qinghai", "Shaanxi", "Shandong", "Shanghai", "Shanxi", "Sichuan", "Tianjin", "Tibet", "Xinjiang", "Yunnan", "Zhejiang"],
+    "Russia": ["Moscow", "Saint Petersburg", "Novosibirsk", "Yekaterinburg", "Nizhny Novgorod", "Kazan", "Chelyabinsk", "Omsk", "Samara", "Rostov-on-Don"],
+    "Mexico": ["Aguascalientes", "Baja California", "Baja California Sur", "Campeche", "Chiapas", "Chihuahua", "Coahuila", "Colima", "Durango", "Guanajuato", "Guerrero", "Hidalgo", "Jalisco", "Mexico City", "Michoacán", "Morelos", "Nayarit", "Nuevo León", "Oaxaca", "Puebla", "Querétaro", "Quintana Roo", "San Luis Potosí", "Sinaloa", "Sonora", "Tabasco", "Tamaulipas", "Tlaxcala", "Veracruz", "Yucatán", "Zacatecas"],
+    "Spain": ["Andalusia", "Aragon", "Asturias", "Balearic Islands", "Basque Country", "Canary Islands", "Cantabria", "Castile and León", "Castilla-La Mancha", "Catalonia", "Extremadura", "Galicia", "La Rioja", "Madrid", "Murcia", "Navarre", "Valencia"],
+    "Italy": ["Abruzzo", "Basilicata", "Calabria", "Campania", "Emilia-Romagna", "Friuli Venezia Giulia", "Lazio", "Liguria", "Lombardy", "Marche", "Molise", "Piedmont", "Puglia", "Sardinia", "Sicily", "Tuscany", "Trentino-Alto Adige", "Umbria", "Veneto"],
+    "Pakistan": ["Punjab", "Sindh", "Khyber Pakhtunkhwa", "Balochistan", "Islamabad", "Gilgit-Baltistan", "Azad Jammu & Kashmir"],
+    "Bangladesh": ["Dhaka", "Chittagong", "Khulna", "Rajshahi", "Sylhet", "Rangpur", "Mymensingh", "Barisal"],
+    "United Arab Emirates": ["Abu Dhabi", "Dubai", "Sharjah", "Ajman", "Umm Al Quwain", "Ras Al Khaimah", "Fujairah"],
+    "Saudi Arabia": ["Riyadh", "Mecca", "Medina", "Eastern Province", "Tabuk", "Asir", "Al-Qassim"],
+    "Egypt": ["Cairo", "Alexandria", "Giza", "Shubra El-Kheima", "Port Said", "Suez"],
+    "Nigeria": ["Lagos", "Kano", "Ibadan", "Abuja", "Port Harcourt", "Benin City", "Kaduna"],
+    "Turkey": ["Istanbul", "Ankara", "Izmir", "Bursa", "Antalya"],
+    "Other": [] // Leave empty for countries not listed
+  };
+
+  function updateStates() {
+    let countrySelect = document.getElementById("country");
+    let stateSelect = document.getElementById("state");
+    let selectedCountry = countrySelect.value;
+    console.log("Selected Country:", selectedCountry);  // Debug: Check the selected country
+
+    // Clear previous states
+    stateSelect.innerHTML = "<option value=''>Select State</option>";
+
+    // Check if states exist for the selected country
+    if (statesByCountry[selectedCountry] && statesByCountry[selectedCountry].length > 0) {
+      statesByCountry[selectedCountry].forEach(function(state) {
+        let option = document.createElement("option");
+        option.value = state;
+        option.textContent = state;
+        stateSelect.appendChild(option);
+      });
+    } else {
+      console.log("No states available for this country.");
+    }
+  }
+
+  // Attach the event listener to the country dropdown
+  document.getElementById("country").addEventListener("change", updateStates);
+});
+</script>
+
+    </div>
+<div class="form-group">
+            <label for="city">City:</label>
+            <input type="text" id="city" required>
+        </div>
+        <div class="form-group">
+            <label>Session Type:</label>
+            <select id="sessionType">
+                <option value="Online">Online</option>
+                <option value="Offline">Offline</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Mode:</label>
+            <select id="mode">
+                <option value="Group">Group</option>
+                <option value="1-to-1">1-to-1</option>
+            </select>
+        </div>
+
+        <button type="submit" class="submit-btn">Submit</button>
+    </form>
+    <p id="responseMessage"></p>
+</div>
+</section>
+<script>
+document.getElementById("registrationForm").addEventListener("submit", async function(e) {
+    e.preventDefault(); // ✅ Stop form from submitting the default way
+    console.log("Form submitted! Sending data...");
+
+    let formData = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        phone: document.getElementById("phone").value,
+        country: document.getElementById("country").value,
+        state: document.getElementById("state").value,
+        city: document.getElementById("city").value,
+        session: document.getElementById("sessionType").value,
+        mode: document.getElementById("mode").value
+    };
+
+    console.log("Collected Data:", formData);
+
+    try {
+        let formDataEncoded = new URLSearchParams(formData).toString(); // ✅ Convert to URL-encoded format
+
+        let response = await fetch("https://script.google.com/macros/s/AKfycbyGn6IliNOP6KRBadN60fpW2WWnCma6XpEqUV3-LodKi76fEcDqXiFd_jKIUujZnMLPAw/exec", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" }, // ✅ Fix content type
+            body: formDataEncoded
+        });
+
+        let result = await response.text();
+        console.log("📩 Response from server:", result);
+
+        if (result.includes("Success")) {
+            document.getElementById("responseMessage").innerText = "✅ Registration Successful!";
+            document.getElementById("registrationForm").reset(); // Clear form after successful submission
+        } else {
+            throw new Error("Server returned an error: " + result);
+        }
+    } catch (error) {
+        console.error("❌ Fetch Error:", error);
+        document.getElementById("responseMessage").innerText = "Error submitting form! Please try again.";
+    }
+});
+
+</script>
+<div class="faq-container">
+  <div class="faq-item">
+    <button class="faq-question">Do you offer beginner classes at your chess academy? &#9662;</button>
+    <div class="faq-answer">Yes, we offer beginner classes tailored to new players.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-question">Do you provide individual or group chess coaching sessions? &#9662;</button>
+    <div class="faq-answer">We offer both individual and group coaching sessions.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-question">Is online chess coaching as effective as regular (offline) classes? &#9662;</button>
+    <div class="faq-answer">Online coaching is highly effective with interactive learning methods.</div>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll(".faq-question").forEach(button => {
+    button.addEventListener("click", () => {
+      const answer = button.nextElementSibling;
+      const isVisible = answer.style.display === "block";
+      document.querySelectorAll(".faq-answer").forEach(ans => ans.style.display = "none");
+      answer.style.display = isVisible ? "none" : "block";
+    });
+  });
+</script>
+    <section id="contact" class="section">
+        <h2>Contact Us</h2>
+        <p>Have questions? Reach out to us for more information or assistance.</p>
+        <p>Email: <a href="mailto:educhessforall@gmail.com">educhessforall@gmail.com</a> | Phone: +91 9633896415</p>
+    </section>
+<iframe 
+    width="100%" 
+    height="400" 
+    style="border:0;" 
+    loading="lazy" 
+    allowfullscreen 
+    referrerpolicy="no-referrer-when-downgrade"
+    src="https://www.google.com/maps?q=8.481577, 76.940411&output=embed">
+</iframe>
+
+
+    <footer>
+        <p>&copy; 2025 Your Chess Academy. All rights reserved. <a href="#">Privacy Policy</a></p>
+    </footer>
+
+    <div class="whatsapp-button">
+        <a href="https://wa.me/9633896415" target="_blank" style="display: flex; justify-content: center; align-items: center;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+        </a>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            const slides = document.querySelector('.review-slides');
+            const totalSlides = document.querySelectorAll('.review-slide').length;
+
+            if (index >= totalSlides) {
+                currentSlide = 0;
+            } else if (index < 0) {
+                currentSlide = totalSlides - 1;
+            } else {
+                currentSlide = index;
+            }
+
+            slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        setInterval(() => {
+            nextSlide();
+        }, 5000);
+    </script>
+<script>
+    let galleryIndex = 0;
+
+    function showGallerySlide(index) {
+        const slides = document.querySelector('.gallery-slides');
+        const totalSlides = document.querySelectorAll('.gallery-slides img').length;
+
+        if (index >= totalSlides) {
+            galleryIndex = 0;
+        } else if (index < 0) {
+            galleryIndex = totalSlides - 1;
+        } else {
+            galleryIndex = index;
+        }
+
+        slides.style.transform = `translateX(-${galleryIndex * 100}%)`;
+    }
+
+    function nextGallerySlide() {
+        showGallerySlide(galleryIndex + 1);
+    }
+
+    function prevGallerySlide() {
+        showGallerySlide(galleryIndex - 1);
+    }
+
+    setInterval(() => {
+        nextGallerySlide();
+    }, 4000);
+</script>
+
+</body>
+</html>
