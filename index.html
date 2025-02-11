@@ -475,7 +475,88 @@ header nav a {
     background: #fafafa;
     border-left: 4px solid #444;
   }
-    </style>
+   #about {
+        text-align: center;
+        font-family: "Poppins", sans-serif;
+        max-width: 900px;
+        margin: auto;
+        padding: 40px 20px;
+    }
+
+    #about h2, #about h3 {
+        font-size: 32px;
+        color: #222;
+        margin-bottom: 15px;
+    }
+
+    #about p {
+        font-size: 18px;
+        color: #555;
+        line-height: 1.6;
+        margin-bottom: 25px;
+    }
+
+    .features {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        text-align: left;
+        margin-top: 20px;
+    }
+
+  .feature-item {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+    /* Different colors for each box */
+    .feature-item:nth-child(1) { background: #007bff; } /* Blue */
+    .feature-item:nth-child(2) { background: #28a745; } /* Green */
+    .feature-item:nth-child(3) { background: #ff9800; } /* Orange */
+    .feature-item:nth-child(4) { background: #673ab7; } /* Purple */
+    .feature-item:nth-child(5) { background: #e91e63; } /* Pink */
+    .feature-item:nth-child(6) { background: #ff5722; } /* Red */
+
+    .feature-icon {
+        font-size: 24px;
+        margin-right: 12px;
+    }
+
+    .cta-button {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 12px 24px;
+        background: #007bff;
+        color: #fff;
+        font-size: 18px;
+        font-weight: bold;
+        text-decoration: none;
+        border-radius: 6px;
+        transition: 0.3s;
+    }
+
+    .cta-button:hover {
+        background: #0056b3;
+    }
+
+    @media (max-width: 768px) {
+        .features {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
 </head>
 <body>
     <header>
@@ -500,36 +581,58 @@ header nav a {
     </div>
 
     <section id="about" class="section">
-        <h2>About Us</h2>
-        <p>Your Chess Academy is dedicated to providing exceptional chess education for players of all skill levels. Whether you’re a beginner or a seasoned player, our tailored programs and expert coaching will help you achieve your chess goals.</p>
-    </section>
+           <h2>About Us</h2>
+    <p>
+        At Educhess, we believe chess is more than just a game—it’s a powerful tool to sharpen 
+        <strong>focus</strong>, <strong>critical thinking</strong>, and <strong>problem-solving skills</strong> in children. 
+        Our mission is to help young minds develop <strong>discipline, patience</strong>, and 
+        <strong>strategic thinking</strong> through structured and engaging chess lessons for all skill levels.
+    </p>
 
-    <section id="programs" class="section">
-        <h2>Our Programs</h2>
-        <div class="features">
-            <div class="feature-card beginner">
-                <h3>Beginner Courses</h3>
-                <p>Start your journey with the basics of chess, including rules, moves, and strategies.</p>
-            </div>
-            <div class="feature-card intermediate">
-                <h3>Intermediate Training</h3>
-                <p>Enhance your understanding of openings, middlegame tactics, and endgame strategies.</p>
-            </div>
-            <div class="feature-card advanced">
-                <h3>Advanced Coaching</h3>
-                <p>Refine your skills with in-depth analysis, competitive preparation, and grandmaster-level insights.</p>
-            </div>
+    <h3>Why Choose Educhess?</h3>
+    <div class="features">
+        <div class="feature-item">
+            <span class="feature-icon">🎓</span>
+            <span>Train with a <strong>FIDE-rated coach</strong> for national & international tournaments.</span>
         </div>
-    </section>
+        <div class="feature-item">
+            <span class="feature-icon">🧠</span>
+            <span>Chess <strong>boosts focus</strong> and teaches kids to think ahead.</span>
+        </div>
+        <div class="feature-item">
+            <span class="feature-icon">⚡</span>
+            <span>Improves <strong>memory & problem-solving</strong> skills.</span>
+        </div>
+        <div class="feature-item">
+            <span class="feature-icon">🎨</span>
+            <span>Enhances <strong>creativity & logical thinking</strong>.</span>
+        </div>
+        <div class="feature-item">
+            <span class="feature-icon">💪</span>
+            <span>Builds <strong>confidence & resilience</strong>.</span>
+        </div>
+        <div class="feature-item">
+            <span class="feature-icon">🏆</span>
+            <span>Compete in <strong>monthly tournaments</strong> and improve ranking.</span>
+        </div>
+    </div>
 
+    <p>
+        Educhess offers <strong>structured online & in-person chess programs</strong> for all skill levels. 
+        Whether your child is just starting or preparing for competitive play, our expert coach 
+        will help them master the game and develop essential life skills.
+    </p>
+
+    <a href="#Register for Classes" class="cta-button">🚀 Enroll Now & Start the Journey!</a>
+</section>
     <section id="gallery" class="section">
         <h2>Gallery</h2>
        <div class="gallery-slider">
     <div class="gallery-slides">
         <img src="https://images-ext-1.discordapp.net/external/eWRnTdKO7_1HH_aHaF6emyAW6J2qhafaKDYIQ7rgvOE/https/images.chesscomfiles.com/uploads/v1/blog/959634.acb843d4.668x375o.de72a8b0cd65.jpg?format=webp&width=835&height=468" alt="Chess class">
-        <img src="https://via.placeholder.com/600x400" alt="Chess match">
-        <img src="https://via.placeholder.com/600x400" alt="Student learning chess">
-        <img src="https://via.placeholder.com/600x400" alt="Chess tournament">
+        <img src="https://images.chesscomfiles.com/uploads/v1/blog/575275.ae6d7cc9.5000x5000o.c558854db156.jpeg" alt="Chess match">
+        <img src="https://raw.githubusercontent.com/Hari-Shankar007/edu-chess/main/IMG_20240906_200331.jpg" alt="Student learning chess">
+        <img src="https://raw.githubusercontent.com/Hari-Shankar007/edu-chess/main/IMG_20240905_172904.jpg" alt="Chess tournament">
     </div>
     <button class="gallery-prev" onclick="prevGallerySlide()">&#10094;</button>
     <button class="gallery-next" onclick="nextGallerySlide()">&#10095;</button>
