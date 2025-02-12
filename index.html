@@ -71,9 +71,10 @@ header nav a:hover {
 }
 
 /* Hide nav on mobile & show hamburger */
+/* Hide nav on mobile & show hamburger */
 @media screen and (max-width: 768px) {
     header nav {
-        display: none; /* Hide the nav */
+        display: none; /* Hide default nav on mobile */
         flex-direction: column;
         position: absolute;
         top: 60px;
@@ -82,7 +83,6 @@ header nav a:hover {
         background: #1c2833;
         text-align: center;
         padding: 1rem 0;
-        transform: translateX(0);
     }
 
     header nav a {
@@ -90,12 +90,18 @@ header nav a:hover {
         padding: 1rem;
     }
 
+    /* Show hamburger menu on mobile */
     .menu-toggle {
-        display: block; /* Show hamburger menu */
+        display: block;
+        font-size: 1.8rem;
+        cursor: pointer;
+        color: white;
+        position: absolute;
+        right: 20px;
     }
 
     .nav-active {
-        display: flex;
+        display: flex; /* Show menu when active */
     }
 }
 
