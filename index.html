@@ -30,13 +30,16 @@ header {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 1000;
 }
-        header h1 {
-            position: absolute;
-            left: 2rem;
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
 
+/* Logo stays on the left */
+header h1 {
+    position: absolute;
+    left: 2rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+/* Desktop Navigation - No changes */
 header nav {
     position: absolute;
     left: 50%;
@@ -45,16 +48,58 @@ header nav {
     gap: 2rem;
 }
 
+/* Navigation Links */
 header nav a {
     color: #fff;
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s;
 }
-      header nav a:hover {
+
+header nav a:hover {
     color: #f39c12;
 }
-        .hero {
+
+/* Mobile Styles */
+.menu-toggle {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: white;
+    position: absolute;
+    right: 20px;
+}
+
+/* Hide nav on mobile & show hamburger */
+@media screen and (max-width: 768px) {
+    header nav {
+        display: none; /* Hide the nav */
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: #1c2833;
+        text-align: center;
+        padding: 1rem 0;
+        transform: translateX(0);
+    }
+
+    header nav a {
+        display: block;
+        padding: 1rem;
+    }
+
+    .menu-toggle {
+        display: block; /* Show hamburger menu */
+    }
+
+    .nav-active {
+        display: flex;
+    }
+}
+
+    .hero {
             background: url('https://raw.githubusercontent.com/Hari-Shankar007/edu-chess/main/EDU_CHESS_5.png') no-repeat center center/cover;
             height: 100vh;
             display: flex;
@@ -496,7 +541,7 @@ header nav a {
         margin-bottom: 25px;
     }
 
-    .features {
+    .featues {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 15px;
@@ -559,16 +604,23 @@ header nav a {
 </style>
 </head>
 <body>
-    <header>
-         <img src="https://raw.githubusercontent.com/Hari-Shankar007/edu-chess/main/EDU%20CHESS%20(6).png" alt="Your Chess Academy Logo">
-        <nav>
-            <a href="#about">About</a>
-            <a href="#programs">Programs</a>
-            <a href="#gallery">Gallery</a>
-            <a href="#Register for Classes">Register for Classes</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+   <header>
+    <img src="https://raw.githubusercontent.com/Hari-Shankar007/edu-chess/main/EDU%20CHESS%20(6).png" alt="EDUCHESS Logo">
+    <span class="menu-toggle" onclick="toggleMenu()">☰</span>
+    <nav id="menu">
+        <a href="#about">About</a>
+        <a href="#programs">Programs</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#Register for Classes">Register for Classes</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+<script>
+    function toggleMenu() {
+        const menu = document.querySelector("header nav");
+        menu.classList.toggle("nav-active");
+    }
+</script>
 
     <div class="hero">
         <div>
@@ -590,7 +642,7 @@ header nav a {
     </p>
 
     <h3>Why Choose Educhess?</h3>
-    <div class="features">
+    <div class="featues">
         <div class="feature-item">
             <span class="feature-icon">🎓</span>
             <span>Train with a <strong>FIDE-rated coach</strong> for national & international tournaments.</span>
@@ -625,6 +677,23 @@ header nav a {
 
     <a href="#Register for Classes" class="cta-button">🚀 Enroll Now & Start the Journey!</a>
 </section>
+<section id="programs" class="section">
+        <h2>Our Programs</h2>
+        <div class="features">
+            <div class="feature-card beginner">
+                <h3>Beginner Courses</h3>
+                <p>Start your journey with the basics of chess, including rules, moves, and strategies.</p>
+            </div>
+            <div class="feature-card intermediate">
+                <h3>Intermediate Training</h3>
+                <p>Enhance your understanding of openings, middlegame tactics, and endgame strategies.</p>
+            </div>
+            <div class="feature-card advanced">
+                <h3>Advanced Coaching</h3>
+                <p>Refine your skills with in-depth analysis, competitive preparation, and grandmaster-level insights.</p>
+            </div>
+        </div>
+    </section>
     <section id="gallery" class="section">
         <h2>Gallery</h2>
        <div class="gallery-slider">
