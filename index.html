@@ -93,9 +93,19 @@ header nav {
     display: flex;
     gap: 2rem;
 }
+.menu-toggle {
+    display: none; /* Hidden on desktop */
+    font-size: 2rem;
+    cursor: pointer;
+    color: white;
+    position: absolute;
+    right: 20px; /* Aligns to the right */
+    top: 15px;
+}
 
 /* Mobile styles */
 @media screen and (max-width: 768px) {
+    /* Hide nav by default on mobile */
     header nav {
         display: none;
         flex-direction: column;
@@ -108,29 +118,17 @@ header nav {
         padding: 1rem 0;
         z-index: 1001;
     }
-    header nav a {
-        display: block;
-        padding: 1rem;
-    }
 
-    /* Show hamburger menu */
+    /* Make hamburger menu visible */
     .menu-toggle {
         display: block;
-        font-size: 2rem;
-        cursor: pointer;
-        color: white;
-        position: absolute;
-        right: 20px;
-        top: 15px;
-        z-index: 1002;
     }
 
-    /* Make nav visible when active */
-     header nav.nav-active {
-        display: flex !important; /* Forces menu to show when clicked */
+    /* Show menu when active */
+    header nav.nav-active {
+        display: flex !important;
     }
-}
-    .hero {
+}    .hero {
             background: url('https://raw.githubusercontent.com/Hari-Shankar007/edu-chess/main/EDU_CHESS_5.png') no-repeat center center/cover;
             height: 100vh;
             display: flex;
@@ -637,7 +635,7 @@ header nav {
 <body>
    <header>
     <img src="https://raw.githubusercontent.com/Hari-Shankar007/edu-chess/main/EDU%20CHESS%20(6).png" alt="EDUCHESS Logo">
-    <span class="menu-toggle">☰</span>
+    <span class="menu-toggle" onclick="toggleMenu()">☰</span>
     <nav id="menu">
         <a href="#about">About</a>
         <a href="#programs">Programs</a>
