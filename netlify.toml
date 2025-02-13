@@ -1,5 +1,5 @@
-[[redirects]]
-  from = "/sitemap_index.xml"
-  to = "/sitemap.xml"
-  status = 301
-  force = true
+[build]
+command = "npm run build"
+publish = "dist"
+ignore = "git diff --quiet HEAD^ HEAD ."
+environment = { NODE_ENV = "production", NETLIFY_USE_CACHE = "false" }
