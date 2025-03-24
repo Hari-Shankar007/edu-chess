@@ -690,6 +690,28 @@ header nav {
             grid-template-columns: 1fr;
         }
     }
+
+/* CSS styles for the download button - add to the style section */
+header nav .download-btn {
+    background: #f39c12;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+header nav .download-btn:hover {
+    background: #d35400;
+}
+
+/* Adjust for mobile */
+@media screen and (max-width: 768px) {
+    header nav .download-btn {
+        margin-top: 8px;
+        padding: 8px 15px;
+        display: inline-block;
+    }
+}
 </style>
 </head>
 <body>
@@ -702,6 +724,7 @@ header nav {
         <a href="#gallery">Gallery</a>
         <a href="#Register for Classes">Register for Classes</a>
         <a href="#contact">Contact</a>
+        <a href="book.pdf" download="EduChess_Handbook.pdf">Download Brochure</a>
     </nav>
 </header>
 <script>
@@ -734,7 +757,7 @@ header nav {
     <section id="about" class="section">
            <h2>About Us</h2>
     <p>
-        At Educhess, we believe chess is more than just a game—it’s a powerful tool to sharpen 
+        At Educhess, we believe chess is more than just a game—it's a powerful tool to sharpen 
         <strong>focus</strong>, <strong>critical thinking</strong>, and <strong>problem-solving skills</strong> in children. 
         Our mission is to help young minds develop <strong>discipline, patience</strong>, and 
         <strong>strategic thinking</strong> through structured and engaging chess lessons for all skill levels.
